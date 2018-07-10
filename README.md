@@ -1,5 +1,5 @@
 # Terrainoise
-Small unity editor script that generates a terrain procedurally using 7 different noise types from Libnoise.Unity .
+Small unity editor to generate a terrain procedurally using 7 different noise types from Libnoise.Unity .
 
 LibNoise.Unity: http://libnoise.sourceforge.net/
 
