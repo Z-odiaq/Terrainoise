@@ -1,7 +1,7 @@
 # Terrainoise
 Small unity editor script that generates a terrain procedurally using 7 different noise types from Libnoise.Unity .
 
-LibNoise.Unity: https://github.com/ricardojmendez
+LibNoise.Unity: http://libnoise.sourceforge.net/
 
 
 ![Perlin Terrain](https://i.imgur.com/2qCj6DS.png)
