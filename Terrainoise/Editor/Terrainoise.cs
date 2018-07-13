@@ -32,11 +32,7 @@ public class Terrainoise : EditorWindow
     public double Lacunarity = 2;
     public double Displacement = 1;
     public bool UseDis = false;
-    
-
-
-
-
+    public double a, b, c, d;
 
     [MenuItem("Terrainoise/Terrainoise")]
     static void Init()
@@ -87,11 +83,20 @@ public class Terrainoise : EditorWindow
                 Frequency = EditorGUILayout.DoubleField("Frequency", Frequency);
                 break;
             default:
-               
+               Debug.LogError("Unrecognized Option");
                 break;
         }
 
-        
+        Island = EditorGUILayout.Toggle("Is Island?", Island);
+        if (Island)
+        {
+            EditorGUILayout.LabelField("**********-Island Settings-**********");
+
+            a = EditorGUILayout.DoubleField("Push All Up", a);
+            b = EditorGUILayout.DoubleField("Push The Edges Down", b);
+            c = EditorGUILayout.DoubleField("The Drop-Off", c);
+            d = EditorGUILayout.DoubleField("Distance From The Center", d);
+        }
 
         if (GUILayout.Button("Create"))
         {
@@ -226,6 +231,11 @@ public class Terrainoise : EditorWindow
 
                 var point = new Vector3(i, k, 0f) / 100;
                 float value = (float)_noise.GetValue(point);
+                
+                if (Island == true)
+                {
+                    value = (float)(value + a - b * Mathf.Pow((float)d, (float)c));
+                }
 
                 value = Mathf.Clamp01((value + 1) / 2f);
 
